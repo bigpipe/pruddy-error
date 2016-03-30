@@ -17,15 +17,15 @@ $ npm install pruddy-error
 
 ## Usage
 
-``js
+```js
 var pruddy = require('pruddy-error')
 var err = new Error('lorem ipsum')
 
 console.error(pruddy(error) || error)
-``
+```
 
 If you'd like to skip some lines from the stack:
 
-``js
+```js
 pruddy(error, 2) // Will start reading the stack from the third line.
 ```
