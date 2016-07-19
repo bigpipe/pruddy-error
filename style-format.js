@@ -1,5 +1,5 @@
+var ansi = require('./ansi-codes.json');
 var format = require('./format-text');
-var ansi = require('./ansi-codes');
 
 module.exports = styleFormat;
 
