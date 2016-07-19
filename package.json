@@ -4,7 +4,7 @@
   "description": "Prettify given error object",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "node --use_strict test.js"
   },
   "keywords": [
     "error",
