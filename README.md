@@ -18,10 +18,10 @@ $ npm install pruddy-error
 ## Usage
 
 ```js
-var pruddy = require('pruddy-error')
-var err = new Error('lorem ipsum')
+var pruddy = require('pruddy-error');
+var error = new Error('lorem ipsum');
 
-console.error(pruddy(error) || error)
+console.error(pruddy(error) || error);
 ```
 
 If you'd like to skip some lines from the stack:
