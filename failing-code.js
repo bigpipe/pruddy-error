@@ -23,6 +23,8 @@ module.exports = function failingCode (error, doc, shift) {
     }
   }
 
+  if (!doc) return undefined;
+
   var result = [];
   var lines = doc.split('\n');
 
