@@ -6,7 +6,7 @@ var fs;
 // wut, yeah, this is for browserify to prevent it from bundling
 // a file system polyfill.
 //
-if (require('is-Node')) {
+if (require('is-node')) {
   nodeRequire = require;
   fs = nodeRequire('fs');
   nodeRequire = null;
