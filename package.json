@@ -4,7 +4,7 @@
   "description": "Prettify given error object",
   "main": "index.js",
   "scripts": {
-    "test": "node --use_strict test.js"
+    "test": "mocha test.js"
   },
   "keywords": [
     "error",
@@ -19,5 +19,9 @@
   "dependencies": {
     "is-node": "^1.0.2",
     "left-pad": "^1.2.0"
+  },
+  "devDependencies": {
+    "assume": "^1.5.2",
+    "mocha": "^4.0.1"
   }
 }

@@ -92,4 +92,4 @@ function pruddy(error, options) {
 //
 // Expose the module
 //
-module.export = pruddy;
+module.exports = pruddy;
