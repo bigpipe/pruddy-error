@@ -1,6 +1,6 @@
 {
   "name": "pruddy-error",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "description": "Prettify given error object",
   "main": "index.js",
   "scripts": {
@@ -15,7 +15,6 @@
     "url": "git@github.com:bigpipe/pruddy-error.git",
     "type": "git"
   },
-  "author": "azer",
   "license": "BSD",
   "dependencies": {
     "is-node": "^1.0.2",
