@@ -1,5 +1,11 @@
-module.exports = format;
 
+/**
+ * Format the text according to the template.
+ *
+ * @param {String} text Template that needs to be formatted.
+ * @param {Arguments..} .. The arguments that need to be applied.
+ * @returns {String} The replaced text.
+ */
 function format(text) {
   var context;
 
@@ -12,8 +18,15 @@ function format(text) {
   return String(text).replace(/\{?\{([^{}]+)}}?/g, replace(context));
 };
 
-function replace (context, nil){
-  return function (tag, name) {
+/**
+ * Replaces the placeholders with the actual data.
+ *
+ * @param {object} context data for the template
+ * @returns {String} The new template data
+ * @private
+ */
+function replace(context){
+  return function replacer(tag, name) {
     if (tag.substring(0, 2) == '{{' && tag.substring(tag.length - 2) == '}}') {
       return '{' + name + '}';
     }
@@ -29,3 +42,8 @@ function replace (context, nil){
     return context[name];
   }
 }
+
+//
+// Expose the actual module.
+//
+module.exports = format;

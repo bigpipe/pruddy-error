@@ -16,5 +16,9 @@
     "type": "git"
   },
   "author": "azer",
-  "license": "BSD"
+  "license": "BSD",
+  "dependencies": {
+    "is-node": "^1.0.2",
+    "left-pad": "^1.2.0"
+  }
 }

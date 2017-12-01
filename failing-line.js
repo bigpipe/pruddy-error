@@ -1,16 +1,12 @@
-module.exports = detect;
-
-function detect (error, shift) {
-  if (!error || !error.stack) return;
-
-  if (/  at /.test(error.stack)) return v8(error, shift);
-
-  if (/:\d+:\d+$/.test(error.stack)) return safari(error, shift);
-
-  return firefox(error, shift);
-}
-
-function safari (error, shift) {
+/**
+ * Parse v8 stack traces.
+ *
+ * @param {Error} error JavaScript Object
+ * @param {Number} shift Stacks to shift.
+ * @returns {Object} Parsed stack trace.
+ * @private
+ */
+function safari(error, shift) {
   var index = 0;
   if (shift) index += shift;
 
@@ -30,7 +26,15 @@ function safari (error, shift) {
   };
 }
 
-function v8 (error, shift) {
+/**
+ * Parse v8 stack traces.
+ *
+ * @param {Error} error JavaScript Object
+ * @param {Number} shift Stacks to shift.
+ * @returns {Object} Parsed stack trace.
+ * @private
+ */
+function v8(error, shift) {
   if (!error || !error.stack) return;
 
   var index = 1;
@@ -66,7 +70,15 @@ function v8 (error, shift) {
   };
 }
 
-function firefox (error, shift) {
+/**
+ * Parse firefox stack traces.
+ *
+ * @param {Error} error JavaScript Object
+ * @param {Number} shift Stacks to shift.
+ * @returns {Object} Parsed stack trace.
+ * @private
+ */
+function firefox(error, shift) {
   var index = 0;
   if (shift) index += shift;
 
@@ -89,3 +101,26 @@ function firefox (error, shift) {
     col: col
   };
 }
+
+/**
+ * Parse the stacktrace and fine the failing line.
+ *
+ * @param {Error} error JavaScript Object
+ * @param {Number} shift Stacks to shift.
+ * @returns {Object} Parsed stack trace.
+ * @public
+ */
+function failingLine(error, shift) {
+  if (!error || !error.stack) return;
+
+  if (/  at /.test(error.stack)) return v8(error, shift);
+
+  if (/:\d+:\d+$/.test(error.stack)) return safari(error, shift);
+
+  return firefox(error, shift);
+}
+
+//
+// Expose the module.
+//
+module.exports = failingLine;
